@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
 
         <receiver
-            android:name="com.djhonj.callinterceptor.broadcast.InterceptorCall"
+            android:name="com.djhonj.callinterceptor.background.broadcast.Interceptor"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -23,12 +23,14 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.djhonj.callinterceptor.activities.MainActivity">
+        <activity android:name="com.djhonj.callinterceptor.views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name="com.djhonj.callinterceptor.background.services.RecordService" android:enabled="true" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.djhonj.callinterceptor.activities
+package com.djhonj.callinterceptor.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

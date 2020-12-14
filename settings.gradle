@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Call Intenceptor"
+rootProject.name = "Call Interceptor"
