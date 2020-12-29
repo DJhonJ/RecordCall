@@ -5,37 +5,29 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.djhonj.callinterceptor.background.services.RecordService
 
-class Interceptor : BroadcastReceiver() {
+class InterceptorBroadcast : BroadcastReceiver() {
+    //private val state_call: List<String> by lazy { listOf<String>("ringing", "offhook", "idle") }
 
     override fun onReceive(context: Context, intent: Intent) {
-        val extras:Bundle? = intent.extras
+        val extras = intent.extras?.getString("state")
         //val changeCall = intent.getStringExtra(intent.)
 
-        if (extras != null) {
-            var state: String? = extras?.getString("state")
+        extras?.let {
+            //val state: String? = it?.getString("state")
 
-            when(state?.toLowerCase()){
+            when(it.toLowerCase()){
                 "ringing" -> Toast.makeText(context, "Telefono sonando", Toast.LENGTH_SHORT).show()
                 "offhook" -> {
                     Toast.makeText(context, "Hablando con alguien (entrante o saliente)", Toast.LENGTH_SHORT).show()
-                    startRecordService(context)
                 }
                 "idle" -> {
                     Toast.makeText(context, "Llamada finalizada (entrante o saliente)", Toast.LENGTH_SHORT).show()
-                    stopRecordService(context)
                 }
                 else -> Toast.makeText(context, "Problemas", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun startRecordService (context: Context) {
-        context.startService(Intent(context, RecordService::class.java))
-    }
-
-    private fun stopRecordService(context: Context) {
-        context.stopService(Intent(context, RecordService::class.java))
     }
 }

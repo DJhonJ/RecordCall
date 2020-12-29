@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Call Interceptor</string>
+    <string name="notification_title">Call Interceptor</string>
+    <string name="notification_text">ejecutandose...</string>
+    <string name="notification_accion_cancel">Cancelar</string>
 </resources>
