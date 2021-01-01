@@ -13,11 +13,8 @@ class InterceptorBroadcast : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         val extras = intent.extras?.getString("state")
-        //val changeCall = intent.getStringExtra(intent.)
 
         extras?.let {
-            //val state: String? = it?.getString("state")
-
             when(it.toLowerCase()){
                 "ringing" -> Toast.makeText(context, "Telefono sonando", Toast.LENGTH_SHORT).show()
                 "offhook" -> {
